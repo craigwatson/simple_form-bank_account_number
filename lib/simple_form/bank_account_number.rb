@@ -25,6 +25,11 @@ module SimpleForm
           input_html_options[:title] = part[:label]
           input_html_options[:style] = "width: auto; display: inline; margin-right: .2em"
 
+          # Twitter Bootstrap tooltips
+          input_html_options["data-toggle"] = "tooltip"
+          input_html_options["data-original-title"] = part[:label]
+          input_html_options["data-placement"] = "bottom"
+
           if length
             value = full_number[from, length]
 
