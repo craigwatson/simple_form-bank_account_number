@@ -21,7 +21,6 @@ module SimpleForm
           input_html_options[:required] = true
           input_html_options[:name] = "#{lookup_model_names.join("_")}[#{reflection_or_attribute_name}][]"
           input_html_options[:pattern] = "^#{part[:format].source}$"
-          input_html_options[:placeholder] = part[:label].sub(/number$/, '#')
           input_html_options[:title] = part[:label]
           input_html_options[:style] = "width: auto; display: inline; margin-right: .2em"
 
