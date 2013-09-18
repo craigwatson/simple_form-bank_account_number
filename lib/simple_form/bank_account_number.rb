@@ -12,7 +12,7 @@ module SimpleForm
         number = SimpleForm::BankAccountNumber::COUNTRIES[country.upcase]
         number ||= SimpleForm::BankAccountNumber::DEFAULT_FORMAT
 
-        full_number = options[:value] || raise(ArgumentError, "You must explicitly set the :value key.")
+        full_number = options.fetch(:value) || ""
         from = 0
 
         fields = number.map do |part|
