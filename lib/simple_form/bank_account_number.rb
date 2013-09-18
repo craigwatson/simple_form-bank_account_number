@@ -23,6 +23,7 @@ module SimpleForm
           input_html_options[:pattern] = "^#{part[:format].source}$"
           input_html_options[:title] = part[:label]
           input_html_options[:style] = "width: auto; display: inline; margin-right: .2em"
+          input_html_options.delete(:country) # don't include it in the markup
 
           # Twitter Bootstrap tooltips
           input_html_options["data-toggle"] = "tooltip"
