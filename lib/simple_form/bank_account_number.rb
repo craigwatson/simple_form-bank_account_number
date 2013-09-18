@@ -18,7 +18,8 @@ module SimpleForm
         fields = number.map do |part|
           length = part[:format].source.scan(/\b\d}/).map(&:to_i).max
 
-          input_html_options[:required] = true
+          input_html_options[:required] = "required"
+          input_html_options[:autocomplete] = "off"
           input_html_options[:name] = "#{lookup_model_names.join("_")}[#{reflection_or_attribute_name}][]"
           input_html_options[:pattern] = "^#{part[:format].source}$"
           input_html_options[:title] = part[:label]
