@@ -30,17 +30,15 @@ module SimpleForm
           input_html_options["data-placement"] = "bottom"
 
           if length
-            value = full_number[from, length]
-
+            from += length
             input_html_options[:size] = length
             input_html_options[:maxlength] = length
-
-            from = from + length
           else
-            value = full_number
+            input_html_options[:size] = nil
+            input_html_options[:maxlength] = nil
           end
 
-          input_html_options[:value] = value
+          input_html_options[:value] = full_number.slice!(0, length || full_number.length)
 
           super
         end
