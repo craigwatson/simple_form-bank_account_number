@@ -45,6 +45,10 @@ module SimpleForm
           super
         end
 
+        unless full_number.empty?
+          raise ArgumentError, "format does not match (#{full_number.length} extra digits)"
+        end
+
         fields.join
       end
     end
