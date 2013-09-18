@@ -16,7 +16,7 @@ module SimpleForm
         from = 0
 
         fields = number.map do |part|
-          length = part[:format].source.scan(/\b\d\b/).map(&:to_i).max
+          length = part[:format].source.scan(/\b\d}/).map(&:to_i).max
 
           input_html_options[:required] = true
           input_html_options[:name] = "#{lookup_model_names.join("_")}[#{reflection_or_attribute_name}][]"
