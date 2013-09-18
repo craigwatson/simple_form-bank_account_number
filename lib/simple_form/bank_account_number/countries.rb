@@ -2,23 +2,23 @@ module SimpleForm
   module BankAccountNumber
     COUNTRIES = {
       "AU" => [
-        { label: "BSB number", format: /\d{6}/ },
-        { label: "account number", format: /\d{9}/ },
+        { label: "6 digit BSB number", format: /\d{6}/ },
+        { label: "9 digit account number", format: /\d{9}/ },
       ],
       "CA" => [
-        { label: "institution number", format: /\d{3}/ },
-        { label: "branch number", format: /\d{5}/ },
+        { label: "5 digit branch number", format: /\d{5}/ },
+        { label: "3 digit institution number", format: /\d{3}/ },
         { label: "account number", format: /\d+/ },
       ],
       "GB" => [
-        { label: "branch number", format: /\d{6}/ },
-        { label: "account number", format: /\d{8}/ },
+        { label: "6 digit sort code", format: /\d{6}/ },
+        { label: "8 digit account number", format: /\d{8}/ },
       ],
       "NZ" => [
-        { label: "bank number", format: /\d{2}/ },
-        { label: "branch number", format: /\d{4}/ },
-        { label: "account number", format: /\d{6}/ },
-        { label: "suffix", format: /\d{2,3}/ },
+        { label: "2 digit bank number", format: /\d{2}/ },
+        { label: "4 digit branch number", format: /\d{4}/ },
+        { label: "7 digit account number", format: /\d{7}/ },
+        { label: "2 or 3 digit suffix", format: /\d{2,3}/ },
       ],
     }
 
