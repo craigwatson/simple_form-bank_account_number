@@ -5,19 +5,26 @@ require "simple_form/bank_account_number/version"
 module SimpleForm
   module Inputs
     class BankAccountNumberInput < NumericInput
+      def self.formatted_bank_account_number(full_number, country)
+        fields = number_format(country).map do |part|
+          length = part[:format].source.scan(/\b\d}/).map(&:to_i).max
+          full_number.slice!(0, length || full_number.length)
+        end
+
+        unless full_number.empty?
+          raise ArgumentError, "format does not match (#{full_number.length} extra digits)"
+        end
+
+        fields.join("-")
+      end
+
       # requires to set :country and :value
       def input
         country = options.delete(:country) || raise(ArgumentError, "You must set the :country key.")
-
-        number = SimpleForm::BankAccountNumber::COUNTRIES[country.upcase]
-        number ||= SimpleForm::BankAccountNumber::DEFAULT_FORMAT
-
         full_number = options.fetch(:value) || ""
-        from = 0
+        parts = self.class.formatted_bank_account_number(full_number, country).split("-").reverse
 
-        fields = number.map do |part|
-          length = part[:format].source.scan(/\b\d}/).map(&:to_i).max
-
+        fields = self.class.number_format(country).map do |part|
           input_html_options[:required] = "required"
           input_html_options[:autocomplete] = "off"
           input_html_options[:name] = "#{lookup_model_names.join("_")}[#{reflection_or_attribute_name}][]"
@@ -31,8 +38,7 @@ module SimpleForm
           input_html_options["data-original-title"] = part[:label]
           input_html_options["data-placement"] = "bottom"
 
-          if length
-            from += length
+          if length = part[:format].source.scan(/\b\d}/).map(&:to_i).max
             input_html_options[:size] = length
             input_html_options[:maxlength] = length
           else
@@ -40,16 +46,19 @@ module SimpleForm
             input_html_options[:maxlength] = nil
           end
 
-          input_html_options[:value] = full_number.slice!(0, length || full_number.length)
+          input_html_options[:value] = parts.pop
 
           super
         end
 
-        unless full_number.empty?
-          raise ArgumentError, "format does not match (#{full_number.length} extra digits)"
-        end
-
         fields.join
+      end
+
+    private
+
+      def self.number_format(country)
+        SimpleForm::BankAccountNumber::COUNTRIES[country.upcase] ||
+          SimpleForm::BankAccountNumber::DEFAULT_FORMAT
       end
     end
   end
