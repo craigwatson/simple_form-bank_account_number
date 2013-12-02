@@ -6,6 +6,8 @@ module SimpleForm
   module Inputs
     class BankAccountNumberInput < NumericInput
       def self.formatted_bank_account_number(full_number, country)
+        full_number = full_number.dup
+
         fields = number_format(country).map do |part|
           length = part[:format].source.scan(/\b\d}/).map(&:to_i).max
           full_number.slice!(0, length || full_number.length)

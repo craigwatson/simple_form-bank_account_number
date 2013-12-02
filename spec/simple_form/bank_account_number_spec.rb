@@ -28,6 +28,13 @@ module SimpleForm::Inputs
         assert "NZ", "041587005000000", "04-1587-0050000-00"
         assert "XX", "1234", "1234"
       end
+
+      it "preserves the given number" do
+        number = "484795453513423"
+        BankAccountNumberInput.formatted_bank_account_number(number, "AU")
+
+        expect(number).to eq "484795453513423"
+      end
     end
 
     describe "#input" do
