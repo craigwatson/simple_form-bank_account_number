@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["cedric@felizard.fr"]
   spec.description   = "A SimpleForm input field for bank account numbers"
   spec.summary       = "Bank account number field for SimpleForm"
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/buckybox/simple_form-bank_account_number"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
