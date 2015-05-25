@@ -21,3 +21,6 @@ You probably want to concatenate them into one single number for your backend wi
 
 `params[:bank_deposit][:account_number] = params[:bank_deposit][:account_number].join`
 
+## License
+
+MIT
