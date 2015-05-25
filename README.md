@@ -1,5 +1,9 @@
 # SimpleForm::BankAccountNumber
 
+[![Build Status](https://travis-ci.org/buckybox/simple_form-bank_account_number.svg?branch=master)](https://travis-ci.org/buckybox/simple_form-bank_account_number)
+[![Dependency Status](http://img.shields.io/gemnasium/buckybox/simple_form-bank_account_number.svg)](https://gemnasium.com/buckybox/simple_form-bank_account_number)
+[![Gem Version](http://img.shields.io/gem/v/simple_form-bank_account_number.svg)](https://rubygems.org/gems/simple_form-bank_account_number)
+
 A [SimpleForm](https://github.com/plataformatec/simple_form) input field for bank account numbers.
 
 ## Usage
