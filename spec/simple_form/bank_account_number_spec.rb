@@ -18,7 +18,7 @@ end
 module SimpleForm::Inputs
   describe BankAccountNumberInput do
     describe ".formatted_bank_account_number" do
-      def assert country, number, formatted_number
+      def assert(country, number, formatted_number)
         expect(BankAccountNumberInput.formatted_bank_account_number(number, country)).to eq formatted_number
       end
 
@@ -59,4 +59,3 @@ module SimpleForm::Inputs
     end
   end
 end
-

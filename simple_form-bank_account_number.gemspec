@@ -1,15 +1,15 @@
 # coding: utf-8
-lib = File.expand_path('../lib', __FILE__)
+lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'simple_form/bank_account_number/version'
+require "simple_form/bank_account_number/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "simple_form-bank_account_number"
   spec.version       = SimpleForm::BankAccountNumber::VERSION
   spec.authors       = ["Cédric Félizard"]
   spec.email         = ["cedric@felizard.fr"]
-  spec.description   = %q{A SimpleForm input field for bank account numbers}
-  spec.summary       = %q{Bank account number field for SimpleForm}
+  spec.description   = "A SimpleForm input field for bank account numbers"
+  spec.summary       = "Bank account number field for SimpleForm"
   spec.homepage      = ""
   spec.license       = "MIT"
 

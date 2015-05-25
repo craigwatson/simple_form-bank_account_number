@@ -26,4 +26,3 @@ module SimpleForm
     ]
   end
 end
-

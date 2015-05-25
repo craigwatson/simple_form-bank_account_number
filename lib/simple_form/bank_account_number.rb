@@ -29,7 +29,7 @@ module SimpleForm
         fields = self.class.number_format(country).map do |part|
           input_html_options[:required] = "required"
           input_html_options[:autocomplete] = "off"
-          input_html_options[:name] = "#{lookup_model_names.join("_")}[#{reflection_or_attribute_name}][]"
+          input_html_options[:name] = "#{lookup_model_names.join('_')}[#{reflection_or_attribute_name}][]"
           input_html_options[:pattern] = "^#{part[:format].source}$"
           input_html_options[:title] = part[:label]
           input_html_options[:style] = "width: auto; display: inline; margin-right: .2em"
@@ -65,4 +65,3 @@ module SimpleForm
     end
   end
 end
-
