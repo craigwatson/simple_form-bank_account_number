@@ -1,6 +1,5 @@
 require "simple_form"
 require "simple_form/bank_account_number/countries"
-require "simple_form/bank_account_number/version"
 
 module SimpleForm
   module Inputs
