@@ -17,26 +17,6 @@ end
 
 module SimpleForm::Inputs
   describe BankAccountNumberInput do
-    describe ".formatted_bank_account_number" do
-      def assert(country, number, formatted_number)
-        expect(BankAccountNumberInput.formatted_bank_account_number(number, country)).to eq formatted_number
-      end
-
-      specify do
-        assert "AU", "484795453513423", "484795-453513423"
-        assert "GB", "40142431565517", "401424-31565517"
-        assert "NZ", "041587005000000", "04-1587-0050000-00"
-        assert "XX", "1234", "1234"
-      end
-
-      it "preserves the given number" do
-        number = "484795453513423"
-        BankAccountNumberInput.formatted_bank_account_number(number, "AU")
-
-        expect(number).to eq "484795453513423"
-      end
-    end
-
     describe "#input" do
       let(:options) do
         {

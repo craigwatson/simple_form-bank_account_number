@@ -6,8 +6,12 @@ Metrics/MethodLength:
 
 Metrics/LineLength:
   Max: 120
+  Exclude: [spec/**/*.rb]
 
 Lint/AssignmentInCondition:
+  Enabled: false
+
+Lint/EndAlignment:
   Enabled: false
 
 Style/AccessModifierIndentation:
@@ -15,6 +19,15 @@ Style/AccessModifierIndentation:
 
 Style/AndOr:
   EnforcedStyle: conditionals
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/ElseAlignment:
+  Enabled: false
+
+Style/IndentationWidth:
+  Enabled: false
 
 Style/SignalException:
   EnforcedStyle: only_raise
