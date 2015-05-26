@@ -6,7 +6,7 @@ module SimpleForm
     class Formatter
       def self.number_format(country)
         BankAccountNumber::COUNTRIES.fetch(
-          country.upcase, BankAccountNumber::DEFAULT_FORMAT
+          country.upcase, BankAccountNumber::COUNTRIES[nil]
         )
       end
 

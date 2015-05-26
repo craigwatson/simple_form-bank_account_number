@@ -33,13 +33,12 @@ module SimpleForm
         ],
         multiline: false,
       },
-    }.freeze
-
-    DEFAULT_FORMAT = {
-      parts: [
-        { label: "Account Number", title: "account number", format: /[A-Z0-9]+/ }
-      ],
-      multiline: false,
+      nil => { # NOTE: default format
+        parts: [
+          { label: "Account Number", title: "account number", format: /[A-Z0-9]+/ }
+        ],
+        multiline: false,
+      }
     }.freeze
   end
 end

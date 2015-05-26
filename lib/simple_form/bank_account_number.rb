@@ -4,7 +4,6 @@ require "simple_form/bank_account_number/formatter"
 module SimpleForm
   module Inputs
     class BankAccountNumberInput < NumericInput
-      # requires to set :country and :value
       def input
         country = options.delete(:country) || raise(ArgumentError, "You must set the :country key.")
         full_number = options.fetch(:value, "")
@@ -12,6 +11,8 @@ module SimpleForm
         format = BankAccountNumber::Formatter.number_format(country)
 
         format.fetch(:parts).map do |part|
+          input_html_options.delete(:country) # don't include it in the markup
+
           input_html_options[:required] = "required"
           input_html_options[:autocomplete] = "off"
           input_html_options[:name] = "#{lookup_model_names.join('_')}[#{reflection_or_attribute_name}][]"
@@ -20,7 +21,6 @@ module SimpleForm
           input_html_options[:style] = "width: auto; display: inline; margin-right: .2em"
           input_html_options["data-label"] = part.fetch(:label)
           input_html_options["data-multiline"] = format.fetch(:multiline)
-          input_html_options.delete(:country) # don't include it in the markup
 
           # Twitter Bootstrap tooltips
           input_html_options["data-toggle"] = "tooltip"
